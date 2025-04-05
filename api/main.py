@@ -106,9 +106,9 @@ from pydantic import BaseModel
 from datetime import datetime
 
 # Replace with your PostgreSQL connection details
-DATABASE_URL = "postgresql://espuser:lcmQ50EMkDy3KfGmbIRzKuMLnKFpUDy2@dpg-cvoam3hr0fns739j680g-a.singapore-postgres.render.com/espapiep"
+DATABASE_URL = "postgresql://espuser:lcmQ50EMkDy3KfGmbIRzKuMLnKFpUDy2@dpg-cvoam3hr0fns739j680g-a.singapore-postgres.render.com/espapiep?sslmode=require"
 
-engine = create_engine(DATABASE_URL)
+engine = create_engine(DATABASE_URL, connect_args={"sslmode": "require"})
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
