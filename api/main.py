@@ -103,7 +103,7 @@ from sqlalchemy import create_engine, Column, Integer, Float, Date, Time
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, Session
 from pydantic import BaseModel
-from datetime import datetime
+from datetime import date, time
 
 # Replace with your PostgreSQL connection details
 DATABASE_URL = "postgresql://espuser:lcmQ50EMkDy3KfGmbIRzKuMLnKFpUDy2@dpg-cvoam3hr0fns739j680g-a.singapore-postgres.render.com/espapiep?sslmode=require"
@@ -133,8 +133,8 @@ class DataCreate(BaseModel):
 
 class DataResponse(BaseModel):
     id: int
-    current_date: datetime
-    current_time: datetime
+    current_date: date
+    current_time: time
     x: float
     y: float
     z: float
